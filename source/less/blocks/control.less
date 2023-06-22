@@ -1,0 +1,61 @@
+.control__checkbox {
+  position: absolute;
+    top: 2px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #9070EC;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+      border-radius: 50%;
+      content: "";
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: #7859CF;
+        opacity: 0.25;
+      }
+    }
+
+    &:active {
+      &::after {
+        background-color: #7859CF;
+        opacity: 1;
+      }
+    }
+}
+
+.control__label {
+  display: block;
+  padding-top: 4px;
+}
+
+.control__input[type="radio"]:checked + .control__checkbox::before {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: #7859CF;
+  border-radius: 50%;
+  content: "";
+}
+
+.control__input:disabled ~ .control__label,
+.control__input:not(:checked):disabled:hover ~ .control__label {
+  color: #bdbdbd;
+}
+
+.control__input[type="radio"]:disabled + .control__checkbox {
+  border: 2px solid #bdbdbd;
+}

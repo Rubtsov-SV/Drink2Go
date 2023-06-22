@@ -1,0 +1,42 @@
+// Реализация кнопок переключения "Страна произрастания"
+
+.country {
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.country__checkbox {
+  position: absolute;
+  left: -35px;
+  top: 0;
+  width: 42px;
+  height: 24px;
+  background: url("/img/catalog/checkbox-unchecked.svg") no-repeat 0 0;
+  cursor: pointer;
+}
+
+.country__label {
+  padding-left: 17px;
+}
+
+.country__input:checked + .country__checkbox {
+  background-image: url("/img/catalog/checkbox-checked.svg");
+}
+
+.country__input:not(:checked):hover + .country__checkbox {
+  background-image: url("/img/catalog/checkbox-hover-focus.svg");
+}
+
+.country__input:disabled + .country__checkbox {
+  background-image: url("/img/catalog/checkbox-disabled-checked.svg");
+}
+
+.country__input:not(:checked):disabled + .country__checkbox {
+  background-image: url("/img/catalog/checkbox-disabled-unchecked.svg");
+}
+
+.country__input:disabled ~ .country__label,
+.country__input:not(:checked):disabled:hover ~ .country__label {
+  color: #bdbdbd;
+}
