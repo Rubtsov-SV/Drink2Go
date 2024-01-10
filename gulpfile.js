@@ -13,6 +13,7 @@ import { stacksvg } from "gulp-stacksvg";
 import { deleteAsync } from 'del';
 import browser from 'browser-sync';
 import bemlinter from 'gulp-html-bemlinter';
+import deploy from 'gulp-gh-pages';
 import { htmlValidator } from "gulp-w3c-html-validator";
 
 let isDevelopment = true;
@@ -147,3 +148,10 @@ export function runDev (done) {
     watchFiles
   )(done);
 }
+
+//deploy
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+  .pipe(deploy());
+});
